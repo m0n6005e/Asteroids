@@ -3,6 +3,7 @@ import pygame
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 import sys
 
 def main():
@@ -13,11 +14,13 @@ def main():
     updatable = pygame.sprite.Group() #creates updatable group
     drawable = pygame.sprite.Group()    # creates drawable group
     asteroid = pygame.sprite.Group() 
-    
+    shots = pygame.sprite.Group()
 
     Asteroid.containers = (asteroid ,updatable, drawable)
     AsteroidField.containers = (updatable)
     Player.containers = (updatable, drawable ) # put both groups into the Player container
+    Shot.containers = (shots, updatable, drawable)
+
 
     asteroidfield = AsteroidField()
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2) # creates a Player object called player, because it is made after containers were declared it is added to the groups.
