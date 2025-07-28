@@ -42,7 +42,7 @@ class Player(CircleShape):
 
             if self.shot_timer > 0:
                 self.shot_timer -= dt
-                print(self.shot_timer)
+               
             else:
                 self.shoot(dt)
             

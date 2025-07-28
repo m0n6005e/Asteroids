@@ -32,8 +32,8 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
 
 
-    while True:                              # quit sequence  
-        for event in pygame.event.get():       
+    while True:                               # Game Loop
+        for event in pygame.event.get():      # quit sequence   
             if event.type == pygame.QUIT:
                 return
 
@@ -44,6 +44,12 @@ def main():
             if object.collision(player):
                 print("Game over!")
                 sys.exit()
+
+        for object in asteroid:
+            for shot in shots:
+                if shot.collision(object):
+                    pygame.sprite.Sprite.kill(object)
+
         
 
         screen.fill("black", rect=None, special_flags=0)    # pygame method that colors the screen
