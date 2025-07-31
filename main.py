@@ -40,15 +40,14 @@ def main():
         
         updatable.update(dt)        # calls update on all objects in updatable group
 
-        for object in asteroid:
+        for object in asteroid:       # collision distruction
             if object.collision(player):
                 print("Game over!")
                 sys.exit()
 
-        
-            for shot in shots:  
+            for shot in shots:      # shot distroying asteroid
                 if shot.collision(object):
-                    object.kill()
+                    object.split(object)
                     shot.kill()
 
         
